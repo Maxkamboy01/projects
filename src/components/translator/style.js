@@ -4,7 +4,7 @@ export const Wrapperstyle = styled.div`
   width: 100%;
   background-color: #fff;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: center;
   padding: 0 200px;
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
@@ -29,7 +29,7 @@ export const Inputstyle = styled.div`
 `;
 
 export const Positionstyle = styled.div`
-  width: 50%;
+  width: 100%;
   margin-right: 50px;
   textarea {
     width: 100%;
