@@ -29,7 +29,7 @@ export const Inputstyle = styled.div`
 `;
 
 export const Positionstyle = styled.div`
-  width: 50%;
+  width: 40%;
   margin-right: 50px;
   border: 2px solid red;
   textarea {
