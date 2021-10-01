@@ -7,7 +7,7 @@ import {
   Transstyle,
   Wrapperstyle,
 } from "./style";
-import { Select } from "antd";
+
 
 function Translator() {
   const [state, setstate] = useState([]);
@@ -31,25 +31,6 @@ function Translator() {
   useEffect(() => {
     // getwords();
   }, []);
-
-  const { Option } = Select;
-
-  function onChange(value) {
-    console.log(`selected ${value}`);
-  }
-
-  function onBlur() {
-    console.log("blur");
-  }
-
-  function onFocus() {
-    console.log("focus");
-  }
-
-  function onSearch(val) {
-    console.log("search:", val);
-  }
-
   return (
     <Wrapperstyle>
       <Inputstyle>
@@ -66,62 +47,49 @@ function Translator() {
           Powered by <a href="https://yandex.com/dev/dictionary/">Yandex</a>
         </Linktext>
       </Inputstyle>
-      <Select
-        id="select"
-        // defaultValue="en-ru"
-        name="select"
-        showSearch
-        style={{ width: 200 }}
-        placeholder="Select language"
-        optionFilterProp="children"
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        onSearch={onSearch}
-        filterOption={(input, option) =>
-          option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-        }
-      >
-        <Option value="ru-ru">Russian ➞ Russian </Option>
 
-        <Option value="ru-en">Russian ➞ English </Option>
-        <Option value="ru-pl">Russian ➞ Polandish </Option>
-        <Option value="ru-uk">Russian ➞ Ukrainian </Option>
-        <Option value="ru-de">Russian ➞ German </Option>
-        <Option value="ru-fr">Russian ➞ French </Option>
-        <Option value="ru-es">Russian ➞ Spanish </Option>
-        <Option value="ru-it">Russian ➞ Italian </Option>
-        <Option value="ru-tr">Russian ➞ Turkish </Option>
-        <Option value="en-ru">English ➞ Russian </Option>
-        <Option value="en-en">English ➞ English </Option>
-        <Option value="en-de">English ➞ German </Option>
-        <Option value="en-fr">English ➞ French </Option>
-        <Option value="en-es">English ➞ Spanish </Option>
-        <Option value="en-it">English ➞ Italian </Option>
-        <Option value="en-tr">English ➞ Turkish </Option>
-        <Option value="pl-ru">Polandish ➞ Russian </Option>
-        <Option value="uk-ru">Ukrainian ➞ Russian </Option>
-        <Option value="de-ru">German ➞ Russian </Option>
-        <Option value="de-en">German ➞ English </Option>
-        <Option value="fr-ru">French ➞ Russian </Option>
-        <Option value="fr-en">French ➞ English </Option>
-        <Option value="es-ru">Spanish ➞ Russian </Option>
-        <Option value="es-en">Spanish ➞ English </Option>
-        <Option value="it-ru">Italian ➞ Russian </Option>
-        <Option value="it-en">Italian ➞ English </Option>
-        <Option value="tr-ru">Turkish ➞ Russian </Option>
-        <Option value="tr-en">Turkish ➞ English </Option>
-      </Select>
+
+
+
+
+      <select id="select" defaultValue="en-ru" name="select">
+        <option value="ru-ru">Russian ➞ Russian </option>
+        <option value="ru-en">Russian ➞ English </option>
+        <option value="ru-pl">Russian ➞ Polandish </option>
+        <option value="ru-uk">Russian ➞ Ukrainian </option>
+        <option value="ru-de">Russian ➞ German </option>
+        <option value="ru-fr">Russian ➞ French </option>
+        <option value="ru-es">Russian ➞ Spanish </option>
+        <option value="ru-it">Russian ➞ Italian </option>
+        <option value="ru-tr">Russian ➞ Turkish </option>
+        <option value="en-ru">English ➞ Russian </option>
+        <option value="en-en">English ➞ English </option>
+        <option value="en-de">English ➞ German </option>
+        <option value="en-fr">English ➞ French </option>
+        <option value="en-es">English ➞ Spanish </option>
+        <option value="en-it">English ➞ Italian </option>
+        <option value="en-tr">English ➞ Turkish </option>
+        <option value="pl-ru">Polandish ➞ Russian </option>
+        <option value="uk-ru">Ukrainian ➞ Russian </option>
+        <option value="de-ru">German ➞ Russian </option>
+        <option value="de-en">German ➞ English </option>
+        <option value="fr-ru">French ➞ Russian </option>
+        <option value="fr-en">French ➞ English </option>
+        <option value="es-ru">Spanish ➞ Russian </option>
+        <option value="es-en">Spanish ➞ English </option>
+        <option value="it-ru">Italian ➞ Russian </option>
+        <option value="it-en">Italian ➞ English </option>
+        <option value="tr-ru">Turkish ➞ Russian </option>
+        <option value="tr-en">Turkish ➞ English </option>
+      </select>
       <Transstyle>
         <ul>
           {state.map((value) => (
             <ol>
-              <b>{value?.text}</b> [{value?.ts}] {value?.pos}
+              <b>{value?.text}</b>     [{value?.ts}] {value?.pos}
               {value?.tr.map((item) => (
                 <li>
-                  <span style={{ color: "blue", marginRight: "10px" }}>
-                    {item.text}
-                  </span>
+                  <span style={{ color: "blue" ,marginRight: "10px"}}>{item.text}</span>
                   {item.gen},
                   {/* {item?.syn.map((syntacse) => (
                     <span>
